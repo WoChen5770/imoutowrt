@@ -579,7 +579,7 @@ define KernelPackage/phy-rtl8261n
    SUBMENU:=$(NETWORK_DEVICES_MENU)
    TITLE:=Realtek RTL8261N NBASE-T PHY driver
    KCONFIG:=CONFIG_RTL8261N_PHY
-   DEPENDS:=+kmod-libphy
+   DEPENDS:=@LINUX_6_12 +kmod-libphy
    FILES:=$(LINUX_DIR)/drivers/net/phy/rtl8261n/rtl8261n.ko
    AUTOLOAD:=$(call AutoLoad,18,rtl8261n,1)
 endef
@@ -1492,7 +1492,7 @@ define KernelPackage/ixgbe
     CONFIG_IXGBE_DCA=n \
     CONFIG_IXGBE_DCB=y
   FILES:=$(LINUX_DIR)/drivers/net/ethernet/intel/ixgbe/ixgbe.ko
-  AUTOLOAD:=$(call AutoLoad,35,ixgbe)
+  AUTOLOAD:=$(call AutoLoad,35,ixgbe,1)
 endef
 
 define KernelPackage/ixgbe/description
